@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-argocd-applicationsets.git
         revision: HEAD
         files:
-          - path: "config.json"
+          - path: "config/fastapi-config.json"
         template:
           metadata:
             name: '{{ namespace }}'
