@@ -18,7 +18,7 @@ spec:
             labels:
               app: fastapi-kustomize
           spec:
-            project: '{{ namespace }}'
+            project: '{{ project }}'
             source:
               repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-kustomize.git
               targetRevision: HEAD
@@ -31,7 +31,7 @@ spec:
   template: 
     metadata: {}
     spec:
-      project: 'default'
+      project: '{{ project }}'
       destination: {}
       # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
       # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
