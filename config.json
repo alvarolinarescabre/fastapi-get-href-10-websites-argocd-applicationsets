@@ -1,8 +1,8 @@
 {
 "namespace": "chamo",
 	"cluster": {
-	    "name": "in-cluster",
-	    "address": "https://kube-apiserver.default.svc"
+		"name": "in-cluster",
+		"address": "https://kube-apiserver.default.svc"
 	}
 }
 
