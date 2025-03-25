@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: fastapi-applicationset
+  namespace: argocd
+  labels:
+    app: fastapi-kustomize
+spec: 
+  generators:
+    - git:
+        repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-argocd-applicationsets.git
+        revision: HEAD
+        files:
+          - path: "config.json"
+        template:
+          metadata:
+            name: '{{ namespace }}'
+            labels:
+              app: fastapi-kustomize
+          spec:
+            project: '{{ namespace }}'
+            source:
+              repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-kustomize.git
+              targetRevision: HEAD
+              path: '.'
+              kustomize: {}
+                namespace: '{{ namespace }}'
+            destination:
+              name: '{{ cluster.name }}'
+              namespace: '{{ namespace }}'
+  template: 
+    metadata: {}
+    spec:
+      project: '{{ namespace }}'
+      destination: {}
+      # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+      # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+      # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+      # space used to store the history, so we do not recommend increasing it.
+      revisionHistoryLimit: 3
