@@ -24,14 +24,14 @@ spec:
               targetRevision: HEAD
               path: '.'
               kustomize: {}
-              # namespace: '{{ namespace }}'
+              namespace: '{{ namespace }}'
             destination:
               name: '{{ cluster.name }}'
               namespace: '{{ namespace }}'
   template: 
     metadata: {}
     spec:
-      project: ''
+      project: '{{ project }}'
       destination: {}
       # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
       # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
