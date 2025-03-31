@@ -24,7 +24,6 @@ spec:
               targetRevision: HEAD
               path: '.'
               kustomize: {}
-              namespace: '{{ namespace }}'
             destination:
               name: '{{ cluster.name }}'
               namespace: '{{ namespace }}'
