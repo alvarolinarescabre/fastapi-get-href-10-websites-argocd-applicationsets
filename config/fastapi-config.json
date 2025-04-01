@@ -1,6 +1,6 @@
 {
 "project": "default",
-"namespace": "chamo",
+"namespace": "argocd",
 	"cluster": {
 		"name": "in-cluster",
 		"address": "https://kube-apiserver.default.svc"
