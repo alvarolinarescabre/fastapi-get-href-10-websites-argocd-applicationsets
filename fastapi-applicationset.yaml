@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: fastapi-applicationset
+  name: chamo-app-to-apps
   namespace: argocd
   labels:
-    app: fastapi-kustomize
+    app: chamo-kustomize
 spec: 
   generators:
     - git:
@@ -16,7 +16,7 @@ spec:
           metadata:
             name: '{{ name }}'
             labels:
-              app: fastapi-kustomize
+              app: chamo-kustomize
           spec:
             project: '{{ project }}'
             source:
