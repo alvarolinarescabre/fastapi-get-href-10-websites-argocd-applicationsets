@@ -25,7 +25,7 @@ spec:
               path: '.'
               kustomize: {}
             destination:
-              name: '{{ cluster.name }}'
+              name: '{{ name }}'
   template: 
     metadata: {}
     spec:
