@@ -14,7 +14,7 @@ spec:
           - path: "config/fastapi-config.json"
         template:
           metadata:
-            name: '{{ namespace }}'
+            name: '{{ name }}'
             labels:
               app: fastapi-kustomize
           spec:
