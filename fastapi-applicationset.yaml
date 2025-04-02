@@ -18,6 +18,8 @@ spec:
             labels:
               app: chamo-kustomize
           spec:
+            syncPolicy:
+              automated: {}
             project: '{{ project }}'
             source:
               repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-kustomize.git
@@ -27,8 +29,6 @@ spec:
             destination:
               name: '{{ cluster.name }}'
               namespace: '{{ namespace }}'
-              syncPolicy:
-                automated: {}
   template: 
     metadata: {}
     spec:
