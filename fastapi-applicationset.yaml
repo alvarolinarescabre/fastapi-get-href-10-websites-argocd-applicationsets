@@ -27,6 +27,8 @@ spec:
             destination:
               name: '{{ cluster.name }}'
               namespace: '{{ namespace }}'
+              syncPolicy:
+                automated: {}
   template: 
     metadata: {}
     spec:
