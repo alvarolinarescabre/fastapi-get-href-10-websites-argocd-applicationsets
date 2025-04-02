@@ -20,7 +20,6 @@ spec:
           spec:
             syncPolicy:
               automated: {}
-              selfHeal: {}
             project: '{{ project }}'
             source:
               repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-kustomize.git
