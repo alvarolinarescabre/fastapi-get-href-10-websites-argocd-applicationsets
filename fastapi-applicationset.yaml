@@ -26,6 +26,7 @@ spec:
               kustomize: {}
             destination:
               name: '{{ cluster.name }}'
+              namespace: '{{ namespace }}'
   template: 
     metadata: {}
     spec:
