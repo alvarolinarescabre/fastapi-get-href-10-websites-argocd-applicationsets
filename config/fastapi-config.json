@@ -1,6 +1,6 @@
 {
 "project": "default",
-"namespace": "argocd",
+"namespace": "chamo",
 "name": "chamo-nginx",
 	"cluster": {
 		"name": "in-cluster",
