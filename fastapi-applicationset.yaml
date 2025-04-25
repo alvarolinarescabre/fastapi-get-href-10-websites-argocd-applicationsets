@@ -22,7 +22,7 @@ spec:
         path: '.'
       destination:
         name: '{{clusterName}}'
-        namespace: '{{ namespace }}'
+        namespace: fastapi-app
       syncPolicy:
         automated:
           prune: true
