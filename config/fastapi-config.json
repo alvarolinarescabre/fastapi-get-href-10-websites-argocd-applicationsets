@@ -2,9 +2,5 @@
 "project": "default",
 "namespace": "chamo",
 "name": "chamo-nginx",
-	"cluster": {
-		"name": "in-cluster",
-		"address": "https://kube-apiserver.default.svc"
-	}
 }
 
