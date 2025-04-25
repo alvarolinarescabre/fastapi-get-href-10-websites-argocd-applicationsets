@@ -3,39 +3,28 @@ kind: ApplicationSet
 metadata:
   name: chamo-app-to-apps
   namespace: argocd
-  labels:
-    app: chamo-kustomize
-spec: 
+spec:
   generators:
-    - git:
-        repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-argocd-applicationsets.git
-        revision: HEAD
-        files:
-          - path: "config/fastapi-config.json"
-        template:
-          metadata:
-            name: '{{ name }}'
-            labels:
-              app: chamo-kustomize
-          spec:
-            syncPolicy:
-              automated: {}
-            project: '{{ project }}'
-            source:
-              repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-kustomize.git
-              targetRevision: HEAD
-              path: '.'
-              kustomize: {}
-            destination:
-              name: '{{ cluster.name }}'
-              namespace: '{{ namespace }}'
-  template: 
-    metadata: {}
+    - clusterDecisionResource:
+        configMapRef: ocm-placement-generator
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: chamo-app-placement
+        requeueAfterSeconds: 30
+  template:
+    metadata:
+      name: '{{clusterName}}-chamo-app'
     spec:
-      project: '{{ project }}'
-      destination: {}
-      # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
-      # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
-      # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
-      # space used to store the history, so we do not recommend increasing it.
-      revisionHistoryLimit: 3
+      project: default
+      source:
+        repoURL: 'https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-kustomize.git'
+        targetRevision: HEAD
+        path: '.'
+      destination:
+        name: '{{clusterName}}'
+        namespace: '{{ namespace }}'
+      syncPolicy:
+        automated:
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
