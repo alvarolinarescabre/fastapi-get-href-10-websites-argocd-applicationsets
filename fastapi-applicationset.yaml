@@ -4,13 +4,6 @@ metadata:
   name: chamo-app-to-apps
   namespace: argocd
 spec:
-  generators:
-    - clusterDecisionResource:
-        configMapRef: ocm-placement-generator
-        labelSelector:
-          matchLabels:
-            cluster.open-cluster-management.io/placement: chamo-app-placement
-        requeueAfterSeconds: 30
   template:
     metadata:
       name: '{{clusterName}}-chamo-app'
