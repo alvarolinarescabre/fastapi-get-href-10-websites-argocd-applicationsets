@@ -1,6 +1,9 @@
 {
 "project": "default",
-"namespace": "chamo",
-"name": "chamo-nginx",
+"namespace": "argocd",
+"name": "chamo-fastapi-app",
+	"cluster": {
+		"name": "in-cluster",
+		"address": "https://kube-apiserver.default.svc"
+	}
 }
-
