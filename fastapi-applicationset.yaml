@@ -7,9 +7,15 @@ spec:
   generators:
   - clusters:
       selector:
-      - cluster: cluster1
+        matchLabels:
+          cluster: cluster1
+      values:
         url: https://172.18.8.10:6443
-      - cluster: cluster2
+  - clusters:
+      selector:
+        matchLabels:
+          cluster: cluster2
+      values:
         url: https://172.18.8.20:6443
   template:
     metadata:
