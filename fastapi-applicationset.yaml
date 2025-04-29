@@ -24,10 +24,10 @@ spec:
         path: '.'
         kustomize: {}
       destination:
-        cluster: '{{ url }}'
+        name: '{{ cluster }}'
         namespace: '{{ namespace }}'
       syncPolicy:
         automated:
-          prune: false
+          prune: true
         syncOptions:
           - CreateNamespace=true
