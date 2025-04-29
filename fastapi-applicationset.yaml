@@ -13,7 +13,7 @@ spec:
         url: https://172.18.8.20:6443
   template:
     metadata:
-      name: '{{ name }}'
+      name: '{{ cluster }}'
       labels:
         app: chamo-kustomize
     spec:
