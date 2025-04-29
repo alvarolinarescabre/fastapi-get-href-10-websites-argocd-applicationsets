@@ -10,6 +10,24 @@ spec:
         revision: HEAD
         files:
           - path: "config/fastapi-config.json"
+        template:
+          metadata:
+            name: '{{ name }}'
+            labels:
+              app: chamo-kustomize
+          spec:
+            syncPolicy:
+              automated: {}
+              selfHeal: {}
+            project: '{{ project }}'
+            source:
+              repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-kustomize.git
+              targetRevision: HEAD
+              path: '.'
+              kustomize: {}
+            destination:
+              name: '{{ cluster.name }}'
+              namespace: '{{ namespace }}'
   template:
     metadata:
       name: '{{clusterName}}-chamo-app'
