@@ -2,8 +2,16 @@
 "project": "default",
 "namespace": "argocd",
 "name": "chamo-fastapi-app",
-	"cluster": {
+	"clusters": {
 		"name": "in-cluster",
 		"address": "https://kubernetes.default.svc"
+	},
+	{
+		"name": "cluster1",
+		"address": "https://172.18.8.10:6443"
+	},
+	{
+		"name": "cluster2",
+		"address": "https://172.18.8.20:6443"
 	}
 }
