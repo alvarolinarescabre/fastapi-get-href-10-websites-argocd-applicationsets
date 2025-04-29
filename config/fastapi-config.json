@@ -4,6 +4,6 @@
 "name": "chamo-fastapi-app",
 	"cluster": {
 		"name": "in-cluster",
-		"address": "https://kube-apiserver.default.svc"
+		"address": "https://kubernetes.default.svc"
 	}
 }
