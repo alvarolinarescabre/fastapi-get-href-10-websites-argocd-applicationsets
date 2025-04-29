@@ -9,8 +9,6 @@ spec:
       elements:
       - cluster: cluster1
         url: https://172.18.8.10:6443
-      - cluster: cluster2
-        url: https://172.18.8.20:6443
   template:
     metadata:
       name: '{{ cluster }}-chamo-app'
