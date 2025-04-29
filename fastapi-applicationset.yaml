@@ -4,6 +4,12 @@ metadata:
   name: chamo-app-to-apps
   namespace: argocd
 spec:
+  generators:
+    - git:
+        repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-argocd-applicationsets.git
+        revision: HEAD
+        files:
+          - path: "config/fastapi-config.json"
   template:
     metadata:
       name: '{{clusterName}}-chamo-app'
