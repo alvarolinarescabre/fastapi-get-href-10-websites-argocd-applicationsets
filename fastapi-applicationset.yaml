@@ -5,11 +5,12 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - git:
-        repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-argocd-applicationsets.git
-        revision: HEAD
-        files:
-          - path: "config/fastapi-config.json"
+    - list:
+      elements:
+      - cluster: cluster1
+        url: https://172.18.8.10:6443
+      - cluster: cluster2
+        url: https://172.18.8.20:6443
         template:
           metadata:
             name: '{{ name }}'
@@ -25,7 +26,7 @@ spec:
               path: '.'
               kustomize: {}
             destination:
-              name: '{{ clusters.name }}'
+              name: '{{ .name }}'
               namespace: '{{ namespace }}'
   template:
     metadata:
