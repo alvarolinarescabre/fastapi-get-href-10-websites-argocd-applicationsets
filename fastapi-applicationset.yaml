@@ -19,7 +19,7 @@ spec:
     spec:
       syncPolicy:
         automated: {}
-      project: '{{ project }}'
+      project: default
       source:
         repoURL: https://github.com/alvarolinarescabre/fastapi-get-href-10-websites-kustomize.git
         targetRevision: HEAD
