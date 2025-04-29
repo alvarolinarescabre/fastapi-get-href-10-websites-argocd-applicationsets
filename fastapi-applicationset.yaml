@@ -5,17 +5,11 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - clusters:
-      selector:
-        matchLabels:
-          cluster: cluster1
-      values:
+  - list:
+      elements:
+      - cluster: cluster1
         url: https://172.18.8.10:6443
-  - clusters:
-      selector:
-        matchLabels:
-          cluster: cluster2
-      values:
+      - cluster: cluster2
         url: https://172.18.8.20:6443
   template:
     metadata:
