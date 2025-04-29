@@ -32,7 +32,7 @@ spec:
         path: '.'
         kustomize: {}
       destination:
-        name: '{{ .name }}'
+        name: '{{ .url }}'
         namespace: '{{ namespace }}'
       syncPolicy:
         automated:
